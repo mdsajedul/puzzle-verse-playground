@@ -74,46 +74,44 @@ function App() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-        <div className="bg-[#F0FFFF] shadow-lg rounded-lg p-6 w-1/2 border">
-          <h1 className='text-center text-gray-800 font-bold text-2xl py-5'>Mass Converter</h1>
+      <div className="bg-[#F0FFFF] shadow-lg rounded-lg p-6 w-full md:w-1/2 border">
+        <h1 className="text-center text-gray-800 font-bold text-2xl py-5">Mass Converter</h1>
 
-          <div className='px-5'>
-              <Select data={items} key={'select'} setId={handleSetItemId}/>
-          </div>
-
-          <div className='flex justify-around py-5'>
-              <div className=''>
-                  <UnitCard
-                    data={item?.units}
-                    key={'cardOne'}
-                    setId={handleSetCardOneKey}
-                    cardInfo={cardOneInfo}
-                    onChange={handleInputFields}
-                    error={error}
-                  />
-              </div>
-              <div className='flex items-center '>
-                <span className='font-extrabold text-3xl'> = </span>
-              </div>
-              <div>
-                  <UnitCard
-                    data={item?.units}
-                    key={'cardTwo'}
-                    setId={handleSetCardTwoKey}
-                    cardInfo={cardTwoInfo}
-                    onChange={handleInputFields}
-                    error={error}
-                  />
-              </div>
-          </div>
-          {error &&
-            <div
-              className='mb-4 rounded-lg bg-orange-300 px-6 py-2 text-base text-gray-900'
-              role="alert">
-              {error}
-          </div>}
+        <div className="px-5">
+          <Select data={items} key={"select"} setId={handleSetItemId} />
         </div>
-        
+
+        <div className="flex flex-col md:flex-row justify-around py-5">
+          <div className="w-full md:w-auto mb-4 md:mb-0">
+            <UnitCard
+              data={item?.units}
+              key={"cardOne"}
+              setId={handleSetCardOneKey}
+              cardInfo={cardOneInfo}
+              onChange={handleInputFields}
+              error={error}
+            />
+          </div>
+          <div className="flex items-center">
+            <span className="font-extrabold text-3xl"> = </span>
+          </div>
+          <div className="w-full md:w-auto">
+            <UnitCard
+              data={item?.units}
+              key={"cardTwo"}
+              setId={handleSetCardTwoKey}
+              cardInfo={cardTwoInfo}
+              onChange={handleInputFields}
+              error={error}
+            />
+          </div>
+        </div>
+        {error && (
+          <div className="mb-4 rounded-lg bg-orange-300 px-6 py-2 text-base text-gray-900" role="alert">
+            {error}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
