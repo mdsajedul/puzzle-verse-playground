@@ -60,6 +60,8 @@ function App() {
     }
 
     useEffect(()=>{
+      setCardOneInfo({key:'',value:''})
+      setCardTwoInfo({key:'',value:''})
       const item = items.find((item)=>item.id==itemId)
       setItem(item)
     },[itemId])
